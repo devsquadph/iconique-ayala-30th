@@ -5,14 +5,14 @@ $(document).ready(function(){
     const next = document.getElementById('next');
 
     const visibleItems = 3;
-    let currentIndex = visibleItems; // Start at the original first slide after the prepended clones
+    let currentIndex = visibleItems;
 
-    // Function to calculate and set each slide's width based on container width
+    // Use clientWidth to ignore padding/borders (or adjust as needed)
     function setItemWidth() {
-        const containerWidth = sliderContainer.offsetWidth;
+        const containerWidth = sliderContainer.clientWidth; // changed from offsetWidth
         const itemWidth = containerWidth / visibleItems;
         document.querySelectorAll('.slider-item').forEach(item => {
-        item.style.width = itemWidth + 'px';
+            item.style.width = itemWidth + 'px';
         });
         return itemWidth;
     }
@@ -52,10 +52,10 @@ $(document).ready(function(){
         updateSlider();
         // If we've reached the cloned first items, jump back to the original items without animation
         if (currentIndex === totalItems + cloneCount) {
-        setTimeout(() => {
-            currentIndex = cloneCount;
-            updateSlider(false);
-        }, 300);
+            setTimeout(() => {
+                currentIndex = cloneCount;
+                updateSlider(false);
+            }, 300);
         }
     });
 
@@ -65,10 +65,10 @@ $(document).ready(function(){
         updateSlider();
         // If we've reached the cloned last items, jump to the original last items without animation
         if (currentIndex === 0) {
-        setTimeout(() => {
-            currentIndex = totalItems;
-            updateSlider(false);
-        }, 300);
+            setTimeout(() => {
+                currentIndex = totalItems;
+                updateSlider(false);
+            }, 300);
         }
     });
 
@@ -77,4 +77,4 @@ $(document).ready(function(){
         itemWidth = setItemWidth();
         updateSlider(false);
     });
-})
+});

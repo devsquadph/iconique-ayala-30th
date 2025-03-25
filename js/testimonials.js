@@ -1,8 +1,8 @@
 $(document).ready(function(){
     const testimonialsContainer = document.getElementById('testimonialsContainer');
     const testimonialsTrack = document.getElementById('testimonialsTrack');
-    const prev = document.getElementById('testimonials_prev');
-    const next = document.getElementById('testimonials_next');
+    const testimonials_prev = document.getElementById('testimonials_prev');
+    const testimonials_next = document.getElementById('testimonials_next');
 
     const visibleItems = 3;
     let currentIndex = visibleItems; // Start at the original first slide after the prepended clones
@@ -47,7 +47,7 @@ $(document).ready(function(){
     }
 
     // Next button click event
-    next.addEventListener('click', () => {
+    testimonials_next.addEventListener('click', () => {
         currentIndex++;
         updateSlider();
         // If we've reached the cloned first items, jump back to the original items without animation
@@ -60,7 +60,7 @@ $(document).ready(function(){
     });
 
     // Previous button click event
-    prev.addEventListener('click', () => {
+    testimonials_prev.addEventListener('click', () => {
         currentIndex--;
         updateSlider();
         // If we've reached the cloned last items, jump to the original last items without animation
@@ -77,4 +77,53 @@ $(document).ready(function(){
         itemWidth = setItemWidth();
         updateSlider(false);
     });
+
+    document.querySelectorAll('#testimonials video').forEach(video => {
+        video.currentTime = 6;
+
+        video.addEventListener('mouseenter', () => {
+            document.querySelectorAll('#testimonials video').forEach(otherVideo => {
+                if (otherVideo !== video) {
+                  otherVideo.pause();
+                }
+            });
+
+            video.play().catch(error => {
+                console.error('Error playing video:', error);
+            });
+            video.muted = false;
+        })
+
+        video.addEventListener('mouseleave', () => {
+            video.pause();
+            video.muted = true;
+        })
+    })
+
+
+    // For each play button inside #testimonials, attach an event listener.
+  document.querySelectorAll('#testimonials .play-button').forEach(button => {
+    button.addEventListener('click', function() {
+      // Get the container of the clicked button.
+      const videoWrapper = this.parentElement;
+      const video = videoWrapper.querySelector('video');
+
+      // Pause all other videos inside #testimonials.
+      document.querySelectorAll('#testimonials video').forEach(otherVideo => {
+        if (otherVideo !== video) {
+          otherVideo.pause();
+          
+          if(otherVideo.parentElement) {
+            otherVideo.parentElement.classList.remove('playing');
+          }
+        }
+      });
+
+      // Play the current video and add a playing class.
+      if (video) {
+        video.play();
+        videoWrapper.classList.add('playing');
+      }
+    });
+  });
 })
