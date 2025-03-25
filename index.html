@@ -10,13 +10,21 @@
 	<body>
 		<header id="main-navbar">
 			<img id="site-logo" src="images/logos/elevatione.png" alt="Elevatione">
+			<a id="menu-toggle" href="#"><i class="fa fa-bars"></i></a>
 			<nav>
-				<a href="#">How it works</a>
-				<a href="#">Testimonials</a>
-				<a href="#">About Us</a>
-				<a href="#">FAQ</a>
+				<a href="#slide-3">How it works</a>
+				<a href="#testimonials">Testimonials</a>
+				<a href="#about-elevatione">About Us</a>
+				<a href="#faq">FAQ</a>
 			</nav>
 		</header>
+		<div class="nav-menu-toggled" id="nav-menu-toggled">
+			<a href="#slide-3">How it works</a>
+			<a href="#testimonials">Testimonials</a>
+			<a href="#about-elevatione">About Us</a>
+			<a href="#faq">FAQ</a>
+			<a href="#" id="close-menu"><i class="fa fa-xmark"></i></a>
+		</div>
 		<section id="hero-section">
 			<video autoplay muted loop class="hero-video">
 				<source src="./videos/landingpage.mp4" muted type="video/mp4">
@@ -373,7 +381,7 @@
 				<h1>Our Location</h1>
 				<div class="location-details">
 					<div class="map">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.321506444422!2d121.0640597!3d14.580746999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c813a9bd1753%3A0x60548d2f56e0842!2sAyala%20Malls%20The%2030th!5e0!3m2!1sen!2sph!4v1740990942759!5m2!1sen!2sph" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.2076655571113!2d120.98764091816516!3d14.530110900000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c95a5bec9a1d%3A0xfc1ecd19d911daab!2s%C3%89L%C3%89VATIONE%20Time%20Stops%20-%20Manila%20Bay!5e0!3m2!1sen!2sph!4v1742892989193!5m2!1sen!2sph" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 					</div>
 					<div class="details">
 						<div class="address">
@@ -479,7 +487,7 @@
 			
 		</footer>
 
-		<a href="https://elevatione.ubpages.com/ayala/scheduling/#lp-code-642" id="book-appointment-btn"></a>
+		<a href="https://elevatione.ubpages.com/ayala/scheduling/#lp-code-642" id="book-appointment-btn">Book an Appointment</a>
 
 
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -488,5 +496,19 @@
 		<script src="./js/partner-slider.js"></script>
 		<script src="./js/gallery.js"></script>
 		<script src="./js/testimonials.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				$("#menu-toggle").click(function(e) {
+					e.preventDefault();
+					$(".nav-menu-toggled").toggle();
+				});
+
+				$("#close-menu").click(function(e) {
+					e.preventDefault();
+					$(".nav-menu-toggled").toggle();
+				});
+			})
+		</script>
 	</body>
 </html>
