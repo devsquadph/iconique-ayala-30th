@@ -416,7 +416,7 @@
 						</div>
 					</div>
 					<div class="column-2">
-						<img src="./images/how-to-image.JPG">
+						<img src="./images/how-to-image.png">
 					</div>
 				</div>
 			</div>
@@ -505,6 +505,11 @@
 				});
 
 				$("#close-menu").click(function(e) {
+					e.preventDefault();
+					$(".nav-menu-toggled").toggle();
+				});
+
+				$(".nav-menu-toggled a").click(function(e) {
 					e.preventDefault();
 					$(".nav-menu-toggled").toggle();
 				});

@@ -8,6 +8,26 @@
   transition: all 0.3s ease-in-out;
 }
 
+p {
+  font-size: larger;
+}
+
+h4 {
+  font-size: larger;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+details {
+  font-size: larger;
+}
+
+details p {
+  font-size: large;
+}
+
 html,
 body {
   height: 100vh;
@@ -494,34 +514,7 @@ header #menu-toggle {
   height: auto;
 }
 
-/* Keyframes for the continuous scrolling animation */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Move the track by half its length (because we duplicate the images) */
-    transform: translateX(-50%);
-  }
-}
 
-@keyframes scroll-reverse {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    /* Move the track by half its length (because we duplicate the images) */
-    transform: translateX(0%);
-  }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slider-track img {
-    width: 150px;
-    margin: 0 10px;
-  }
-}
 
 
 
@@ -535,6 +528,10 @@ header #menu-toggle {
 
 #testimonials > h1 {
   text-align: center;
+}
+
+#testimonials video {
+  border-radius: 0.5rem;
 }
 
 
@@ -570,10 +567,15 @@ header #menu-toggle {
   padding: 2rem;
 }
 
+#gallery-section .slider-item .top {
+  margin-bottom: 0.8rem;
+}
+
 #gallery-section .slider-item img {
   width: 100%;
   object-fit: cover;
   aspect-ratio: 1/1;
+  border-radius: 0.5rem;
 }
 
 /* LOCATION SECTION */
@@ -779,4 +781,43 @@ footer .contact-details .details {
 footer .contact-details .details i {
   color: #ab8c4e;
   font-size: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Keyframes for the continuous scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Move the track by half its length (because we duplicate the images) */
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    /* Move the track by half its length (because we duplicate the images) */
+    transform: translateX(0%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slider-track img {
+    width: 150px;
+    margin: 0 10px;
+  }
 }
